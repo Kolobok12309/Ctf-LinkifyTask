@@ -1,6 +1,12 @@
 <template>
   <div class="container">
+    sdfsdfdsf13
     <SecretElem class="secret-input" />
+
+    <div>
+      dsfsf
+      <Chat />
+    </div>
   </div>
 </template>
 

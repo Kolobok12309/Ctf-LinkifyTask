@@ -1,0 +1,16 @@
+.chat-preview {
+  background-color: #ffaab2;
+  border: solid 1px #dc3545;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+
+  &__id {
+    font-weight: bold;
+  }
+
+  &__text {
+    text-overflow: ellipsis;
+  }
+}

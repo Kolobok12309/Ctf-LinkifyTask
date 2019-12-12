@@ -1,0 +1,49 @@
+.chat-dialog {
+  height: 100%;
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  &__messages {
+    overflow-y: auto;
+    max-height: 540px;
+
+    flex: 1;
+  }
+
+  &__text {
+    display: flex;
+
+    flex-shrink: 1;
+  }
+
+  &__title {
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  &__message {
+    display: block;
+
+    &__container {
+      display: inline-block;
+      padding: 10px;
+      background-color: #4dda6d;
+      border-radius: 10px;
+      color: white;
+      max-width: 300px;
+    }
+
+    &__text {
+      font-size: 16px;
+      font-weight: bolder;
+    }
+
+    &_my {
+      text-align: right;
+    }
+  }
+}

@@ -1,6 +1,24 @@
 <template>
   <div class="chat">
-    chat
+    <div
+      class="chat-id"
+      v-show="myId"
+    >
+      Ваш Id: {{myId}}
+    </div>
+
+    <div class="chat-row">
+      <List
+        v-model="nowReceiver"
+        :receivers="receivers"
+        @addChat="addChat"
+      />
+
+      <Dialog
+        :receiver="nowReceiver"
+        @sendMessage="sendMessage"
+      />
+    </div>
   </div>
 </template>
 

@@ -1,0 +1,10 @@
+.chat-list {
+  width: 250px;
+  height: 100%;
+  border-right: solid 2px #dc3545;
+
+  &-list {
+    overflow-y: auto;
+    width: 100%;
+  }
+}

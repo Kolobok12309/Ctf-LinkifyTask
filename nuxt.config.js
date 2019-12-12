@@ -1,9 +1,12 @@
-const ArchivePlugin = require('webpack-archive-plugin');
+import ArchivePlugin from 'webpack-archive-plugin';
+
+import env from './utils/getEnv';
 
 export default {
   /*
    ** Headers of the page
    */
+  env,
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -18,6 +21,10 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [],
   },
+  server: {
+    host: '0.0.0.0',
+    port: env.CTF_PORT,
+  },
   /*
    ** Customize the progress-bar color
    */
@@ -29,7 +36,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: '@/plugins/io', mode: 'client' }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -40,7 +47,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['bootstrap-vue/nuxt'],
+  modules: ['bootstrap-vue/nuxt', '~/io'],
   /*
    ** Build configuration
    */
@@ -50,6 +57,12 @@ export default {
      */
     extend(config, { isClient }) {
       // if (isClient) config.plugins.push(new ArchivePlugin())
+    },
+  },
+
+  watchers: {
+    webpack: {
+      poll: process.env.CTF_STAGE === 'docker',
     },
   },
 };

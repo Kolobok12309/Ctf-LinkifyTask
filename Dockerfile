@@ -2,12 +2,16 @@ FROM node:10-alpine
 
 ENV CTF_STAGE="docker"
 
-WORKDIR /usr/src/app
-COPY package*.json .
-RUN npm install
-COPY . .
-RUN npm run build
+RUN apk add yarn
 
-VOLUME /usr/src/pages
+WORKDIR /usr/src/app
+COPY package*.json yarn.lock ./
+RUN yarn
+
+COPY . .
+
+RUN yarn build
 
 EXPOSE 8080
+
+CMD ["yarn", "start"]
